@@ -9,5 +9,5 @@ inputs:
     required: true
     description: 'The webhook URL for the Slack channel'
 runs:
-  using: 'node22'
+  using: 'node20'
   main: 'dist/index.js'
