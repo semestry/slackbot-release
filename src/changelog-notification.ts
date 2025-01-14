@@ -1,7 +1,7 @@
 import type {Block, DividerBlock, HeaderBlock, SectionBlock} from '@slack/types'
 import type {OauthV2AccessResponse} from '@slack/web-api'
 import axios from 'axios'
-import {markdownToBlocks} from '@instantish/mack'
+import {markdownToBlocks} from '@tryfabric/mack'
 
 interface Repository {
   repo: string
