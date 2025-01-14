@@ -1,0 +1,17 @@
+name: Slackbot on release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  notify_slack:
+    runs-on: ubuntu-latest
+    name: Notify Slack on Release
+    steps:
+      - uses: actions/checkout@v4
+      - name: Notify Slack on Releases
+        uses: ./
+        with:
+          slack_webhook_url: ${{ secrets.RELEASE_SLACK_WEBHOOK_URL }}
