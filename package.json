@@ -28,8 +28,8 @@
     "@actions/github": "^6.0.0",
     "@instantish/mack": "^1.2.0",
     "@octokit/webhooks": "^13.4.2",
-    "@slack/types": "^2.4.0",
-    "@slack/web-api": "^6.7.1",
+    "@slack/types": "^2.14.0",
+    "@slack/web-api": "^7.8.0",
     "axios": "^0.26.1"
   },
   "devDependencies": {
