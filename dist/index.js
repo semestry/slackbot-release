@@ -28,21 +28,38 @@ function notifyChangelog(_a) {
             type: 'header',
             text: {
                 type: 'plain_text',
-                text: `🎉 [CHANGELOG]: ${release.name}`
+                text: `🎉 ${repo.owner}/${repo.repo} ${release.name}`
             }
         };
-        const linkBlock = {
-            type: 'section',
+        const releaseButton = {
+            type: 'button',
             text: {
-                type: 'mrkdwn',
-                text: `<${release.html_url}>`
-            }
+                type: 'plain_text',
+                text: 'View release',
+            },
+            url: `${release.html_url}`
+        };
+        const actionBlock = {
+            type: 'actions',
+            elements: [
+                releaseButton
+            ]
+        };
+        const author = {
+            type: 'plain_text',
+            text: `Author: ${release.author.login}`
+        };
+        const contextBlock = {
+            type: 'context',
+            elements: [
+                author
+            ]
         };
         const dividerBlock = { type: 'divider' };
         const bodyBlocks = yield (0, mack_1.markdownToBlocks)(release.body);
         return yield axios_1.default.post(slackWebhookUrl, {
             text: `${release.name} has been released in ${repo.owner}/${repo.repo}`,
-            blocks: [introBlock, linkBlock, dividerBlock, ...bodyBlocks]
+            blocks: [introBlock, ...bodyBlocks, dividerBlock, actionBlock, contextBlock]
         });
     });
 }

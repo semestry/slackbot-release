@@ -1,4 +1,12 @@
-import type {ActionsBlock, Block, Button, ContextBlock, DividerBlock, HeaderBlock, PlainTextElement} from '@slack/types'
+import type {
+  ActionsBlock,
+  Block,
+  Button,
+  ContextBlock,
+  DividerBlock,
+  HeaderBlock,
+  PlainTextElement
+} from '@slack/types'
 import type {OauthV2AccessResponse} from '@slack/web-api'
 import axios from 'axios'
 import {markdownToBlocks} from '@tryfabric/mack'
@@ -42,16 +50,14 @@ export async function notifyChangelog({
     type: 'button',
     text: {
       type: 'plain_text',
-      text: 'View release',
+      text: 'View release'
     },
     url: `${release.html_url}`
   }
 
   const actionBlock: ActionsBlock = {
     type: 'actions',
-    elements: [
-      releaseButton
-    ]
+    elements: [releaseButton]
   }
 
   const author: PlainTextElement = {
@@ -61,9 +67,7 @@ export async function notifyChangelog({
 
   const contextBlock: ContextBlock = {
     type: 'context',
-    elements: [
-      author
-    ]
+    elements: [author]
   }
 
   const dividerBlock: DividerBlock = {type: 'divider'}
