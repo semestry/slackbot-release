@@ -42,7 +42,8 @@ export async function notifyChangelog({
     type: 'header',
     text: {
       type: 'plain_text',
-      text: `🎉 ${repo.owner}/${repo.repo} ${release.name}`
+      text: `:tada: ${repo.owner}/${repo.repo} ${release.name}`,
+      emoji: true
     }
   }
 
@@ -62,7 +63,8 @@ export async function notifyChangelog({
 
   const author: PlainTextElement = {
     type: 'plain_text',
-    text: `Author: ${release.author.login}`
+    text: `:technologist: Author: ${release.author.login}`,
+    emoji: true
   }
 
   const contextBlock: ContextBlock = {
