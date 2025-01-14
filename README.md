@@ -1,5 +1,8 @@
 # Notify Slack on changes
 
+> [!NOTE]
+> This is a fork of [https://github.com/amendx/slackbot-release](amendx/slackbot-release).
+
 This GitHub Action sends a rich-text notification to your Slack channel when there's a new release in your GitHub repository.
 
 We use [mack](https://github.com/tryfabric/mack)  to render the body of the release as Slack blocks.
@@ -56,5 +59,5 @@ $ npm run build && npm run package
 Cut a new release
 
 ```bash
-$ release-it
+$ npm run release
 ```
