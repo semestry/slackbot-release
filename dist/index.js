@@ -28,32 +28,30 @@ function notifyChangelog(_a) {
             type: 'header',
             text: {
                 type: 'plain_text',
-                text: `🎉 ${repo.owner}/${repo.repo} ${release.name}`
+                text: `:tada: ${repo.owner}/${repo.repo} ${release.name}`,
+                emoji: true
             }
         };
         const releaseButton = {
             type: 'button',
             text: {
                 type: 'plain_text',
-                text: 'View release',
+                text: 'View release'
             },
             url: `${release.html_url}`
         };
         const actionBlock = {
             type: 'actions',
-            elements: [
-                releaseButton
-            ]
+            elements: [releaseButton]
         };
         const author = {
             type: 'plain_text',
-            text: `Author: ${release.author.login}`
+            text: `:technologist: Author: ${release.author.login}`,
+            emoji: true
         };
         const contextBlock = {
             type: 'context',
-            elements: [
-                author
-            ]
+            elements: [author]
         };
         const dividerBlock = { type: 'divider' };
         const bodyBlocks = yield (0, mack_1.markdownToBlocks)(release.body);
