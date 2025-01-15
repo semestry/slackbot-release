@@ -2,7 +2,8 @@
 
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import github from 'eslint-plugin-github';
+import globals from 'globals';
+// import github from 'eslint-plugin-github';
 
 export default tseslint.config(
     {
@@ -16,16 +17,25 @@ export default tseslint.config(
 
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
-    github.getFlatConfigs().recommended,
-    ...github.getFlatConfigs().typescript,
+
+    // These don't work for whatever reason - ignore
+    // github.getFlatConfigs().recommended,
+    // ...github.getFlatConfigs().typescript,
 
     {
         languageOptions: {
+            globals: {
+              ...globals.node,
+              Atomics: 'readonly',
+              SharedArrayBuffer: 'readonly'
+            },
+
             parser: tseslint.parser,
+            sourceType: 'module',
 
             parserOptions: {
                 project: true,
-            },
+            }
         },
 
         plugins: {
