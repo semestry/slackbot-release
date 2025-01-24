@@ -56,6 +56,14 @@ $ npm run build && npm run package
 
 ## Releasing
 
+Update artifacts first
+
+
+```bash
+$ npm run all
+```
+
+
 Cut a new release
 
 ```bash
