@@ -1,0 +1,19 @@
+name: Slackbot on release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  notify_slack:
+    runs-on: ubuntu-latest
+    name: Announce release on Slack
+    steps:
+      - uses: actions/checkout@v4
+
+      # Dogfooding - announce or own release
+      - name: Announce release on Slack
+        uses: ./
+        with:
+          slack_webhook_url: ${{ secrets.RELEASE_SLACK_WEBHOOK_URL }}
