@@ -29,21 +29,21 @@
     "@octokit/webhooks": "^13.8.0",
     "@octokit/webhooks-types": "^7.6.1",
     "@slack/types": "^2.14.0",
-    "@slack/web-api": "^7.8.0",
+    "@slack/web-api": "^7.9.1",
     "@tryfabric/mack": "^1.2.1",
     "axios": "^1.8.4"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "@types/sinon": "^17.0.3",
+    "@types/sinon": "^17.0.4",
     "@vercel/ncc": "^0.38.3",
-    "eslint": "^9.19.0",
+    "eslint": "^9.23.0",
     "eslint-plugin-github": "^6.0.0",
     "js-yaml": "^4.1.0",
     "prettier": "3.5.3",
     "release-it": "^18.1.2",
-    "sinon": "^19.0.2",
-    "typescript": "^5.7.3",
+    "sinon": "^19.0.5",
+    "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.0"
   }
 }
