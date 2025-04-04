@@ -69,3 +69,11 @@ Cut a new release
 ```bash
 $ npm run release
 ```
+
+As this project is a Github action, you might want to repoint tags like `v2` after a release. This has to be done manually for now.
+See [https://github.com/actions/toolkit/blob/master/docs/action-versioning.md#recommendations](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md#recommendations) for details.
+
+```bash
+git tag -fa v2 -m "Update v2 tag"
+git push origin v2 --force
+```
