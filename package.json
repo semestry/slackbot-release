@@ -34,7 +34,7 @@
     "axios": "^1.8.4"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
+    "@types/node": "^22.15.3",
     "@types/sinon": "^17.0.4",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.23.0",
