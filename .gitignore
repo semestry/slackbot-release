@@ -1,6 +1,11 @@
 # Dependency directory
 node_modules
 
+# IntelliJ
+.idea/.name
+.idea/modules.xml
+.idea/*.iml
+
 # Rest pulled from https://github.com/github/gitignore/blob/master/Node.gitignore
 # Logs
 logs
