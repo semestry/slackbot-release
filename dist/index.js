@@ -38980,7 +38980,7 @@ module.exports = parseParams
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
-/*! Axios v1.13.0 Copyright (c) 2025 Matt Zabriskie and contributors */
+/*! Axios v1.13.1 Copyright (c) 2025 Matt Zabriskie and contributors */
 
 
 const FormData$1 = __nccwpck_require__(6454);
@@ -41140,7 +41140,7 @@ function buildFullPath(baseURL, requestedURL, allowAbsoluteUrls) {
   return requestedURL;
 }
 
-const VERSION = "1.13.0";
+const VERSION = "1.13.1";
 
 function parseProtocol(url) {
   const match = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url);
@@ -42416,7 +42416,7 @@ const httpAdapter = isHttpAdapterSupported && function httpAdapter(config) {
 
       if (responseType === 'stream') {
         response.data = responseStream;
-        settle(resolve, abort, response);
+        settle(resolve, reject, response);
       } else {
         const responseBuffer = [];
         let totalResponseBytes = 0;
