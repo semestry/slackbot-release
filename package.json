@@ -44,6 +44,6 @@
     "release-it": "^19.2.2",
     "sinon": "^21.0.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.1"
+    "typescript-eslint": "^8.51.0"
   }
 }
