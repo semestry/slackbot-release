@@ -41,7 +41,7 @@
     "eslint-plugin-github": "^6.0.0",
     "js-yaml": "^4.1.1",
     "prettier": "3.7.4",
-    "release-it": "^19.2.2",
+    "release-it": "^19.2.3",
     "sinon": "^21.0.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.52.0"
