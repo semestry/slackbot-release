@@ -24,7 +24,7 @@
   "author": "amendx",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^2.0.1",
+    "@actions/core": "^2.0.2",
     "@actions/github": "^7.0.0",
     "@octokit/webhooks": "^14.2.0",
     "@octokit/webhooks-types": "^7.6.1",
