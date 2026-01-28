@@ -39261,7 +39261,7 @@ module.exports = parseParams
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
-/*! Axios v1.13.3 Copyright (c) 2026 Matt Zabriskie and contributors */
+/*! Axios v1.13.4 Copyright (c) 2026 Matt Zabriskie and contributors */
 
 
 const FormData$1 = __nccwpck_require__(6454);
@@ -41402,7 +41402,7 @@ function buildFullPath(baseURL, requestedURL, allowAbsoluteUrls) {
   return requestedURL;
 }
 
-const VERSION = "1.13.3";
+const VERSION = "1.13.4";
 
 function parseProtocol(url) {
   const match = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url);
@@ -44088,13 +44088,8 @@ class Axios {
 
       promise = Promise.resolve(config);
 
-      let prevResult = config;
       while (i < len) {
-        promise = promise
-            .then(chain[i++])
-            .then(result => { prevResult = result !== undefined ? result : prevResult; })
-            .catch(chain[i++])
-            .then(() => prevResult);
+        promise = promise.then(chain[i++], chain[i++]);
       }
 
       return promise;
@@ -44125,7 +44120,7 @@ class Axios {
     len = responseInterceptorChain.length;
 
     while (i < len) {
-      promise = promise.then(responseInterceptorChain[i++]).catch(responseInterceptorChain[i++]);
+      promise = promise.then(responseInterceptorChain[i++], responseInterceptorChain[i++]);
     }
 
     return promise;
