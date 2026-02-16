@@ -29,7 +29,7 @@
     "@octokit/webhooks": "^14.2.0",
     "@octokit/webhooks-types": "^7.6.1",
     "@slack/types": "^2.19.0",
-    "@slack/web-api": "^7.13.0",
+    "@slack/web-api": "^7.14.1",
     "@tryfabric/mack": "^1.2.1",
     "axios": "^1.13.4"
   },
