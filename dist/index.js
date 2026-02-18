@@ -70,6 +70,39 @@ function notifyChangelog(_a) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -80,18 +113,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core_1 = __nccwpck_require__(7484);
-const github_1 = __nccwpck_require__(3228);
+const core = __importStar(__nccwpck_require__(7484));
+const github = __importStar(__nccwpck_require__(3228));
 const changelog_notification_1 = __nccwpck_require__(3884);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            (0, core_1.debug)(`Sending notification...`);
-            const slackWebhookUrl = (0, core_1.getInput)('slack_webhook_url');
-            const context = github_1.context;
+            core.debug(`Sending notification...`);
+            const slackWebhookUrl = core.getInput('slack_webhook_url');
+            const context = github.context;
             const { eventName, repo } = context;
             if (eventName !== 'release') {
-                (0, core_1.setFailed)('Action should only be run on release publish events');
+                core.setFailed('Action should only be run on release publish events');
             }
             const payload = context.payload;
             yield (0, changelog_notification_1.notifyChangelog)({
@@ -99,11 +132,11 @@ function run() {
                 release: payload.release,
                 repo
             });
-            (0, core_1.debug)('Sent notification');
+            core.debug('Sent notification');
         }
         catch (error) {
             if (error instanceof Error)
-                (0, core_1.setFailed)(error.message);
+                core.setFailed(error.message);
         }
     });
 }
