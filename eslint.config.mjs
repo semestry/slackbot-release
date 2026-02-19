@@ -3,7 +3,6 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import globals from 'globals';
-// import github from 'eslint-plugin-github';
 
 export default tseslint.config(
     {
@@ -17,10 +16,6 @@ export default tseslint.config(
 
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
-
-    // These don't work for whatever reason - ignore
-    // github.getFlatConfigs().recommended,
-    // ...github.getFlatConfigs().typescript,
 
     {
         languageOptions: {
