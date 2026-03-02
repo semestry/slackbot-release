@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
 import type {ReleaseReleasedEvent} from '@octokit/webhooks-types'
-import {notifyChangelog} from './changelog-notification'
+import {notifyChangelog} from './changelog-notification.js'
 
 async function run(): Promise<void> {
   try {
