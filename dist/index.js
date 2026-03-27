@@ -1,4 +1,4 @@
-import './sourcemap-register.cjs';/******/ var __webpack_modules__ = ({
+/******/ var __webpack_modules__ = ({
 
 /***/ 4914:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
@@ -51833,5 +51833,3 @@ function run() {
 }
 run();
 
-
-//# sourceMappingURL=index.js.map
