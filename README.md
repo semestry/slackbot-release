@@ -53,6 +53,14 @@ Build the typescript and package it for distribution
 $ npm run build && npm run package
 ```
 
+Run the tests
+
+```bash
+$ npm test
+```
+
+Tests live in [`tests/`](tests/) and run via Node's built-in test runner (`node --test`) with `tsx` for on-the-fly TypeScript execution. Node v22 (pinned in `.node-version`) is required for `.ts` test-file support.
+
 
 ## Releasing
 

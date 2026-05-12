@@ -7,9 +7,10 @@ import globals from 'globals';
 export default tseslint.config(
     {
         ignores: [
-            "**/dist/", 
-            "**/lib/", 
-            "**/node_modules/", 
+            "**/dist/",
+            "**/lib/",
+            "**/node_modules/",
+            "tests/",
             "eslint.config.mjs"
         ]
     },
