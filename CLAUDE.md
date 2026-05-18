@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A GitHub Action (not a library or CLI) that posts a rich-text Slack notification when a release is published in the consumer's repo. Fork of `amendx/slackbot-release` maintained by Semestry. The single action input is `slack_webhook_url`; the action manifest is [action.yaml](action.yaml) and it runs on `node20`.
+A GitHub Action (not a library or CLI) that posts a rich-text Slack notification when a release is published in the consumer's repo. Fork of `amendx/slackbot-release` maintained by Semestry. The single action input is `slack_webhook_url`; the action manifest is [action.yaml](action.yaml) and it runs on `node24`.
 
 ## Build and packaging model
 
@@ -24,7 +24,7 @@ GitHub Actions execute the committed `dist/index.js` directly — there is no in
 
 Tests live outside `src/` so `tsc`'s `rootDir: "./src"` doesn't compile them into `lib/` and `ncc` doesn't bundle them. `tests/` is also added to [eslint.config.mjs](eslint.config.mjs) ignores because they're outside the eslint tsconfig project.
 
-Note: directory mode (`--test tests/`) doesn't work cleanly with tsx's resolver — use the explicit glob `tests/*.test.ts`. Node ≥20 is required for `.ts` test-file discovery; the project pins v22 via `.node-version`.
+Note: directory mode (`--test tests/`) doesn't work cleanly with tsx's resolver — use the explicit glob `tests/*.test.ts`. Node ≥20 is required for `.ts` test-file discovery; the project pins v24 via `.node-version`.
 
 ## Code architecture
 
@@ -46,5 +46,5 @@ Adding fields to the Slack message: extend the block array in `notifyChangelog`.
 
 ## Node / tooling versions
 
-- [.node-version](.node-version) pins `v22`; CI uses `node-version: 22.x`. The `runs.using` in `action.yaml` is `node20` (the GitHub Actions runtime), which is independent of the build-time Node version.
+- [.node-version](.node-version) pins `v24`; CI uses `node-version: 24.x`. The `runs.using` in `action.yaml` is `node24` (the GitHub Actions runtime), which is independent of the build-time Node version.
 - TypeScript config in [tsconfig.json](tsconfig.json) currently uses `module: node16` / `moduleResolution: node16`. Note that `@actions/core` v3 and `@actions/github` v9 are pure ESM — bumping to those versions requires also making this package ESM (`"type": "module"` in package.json) and raising `target` to at least `es2022` (for `ErrorOptions` in transitive `@octokit/request-error` types).

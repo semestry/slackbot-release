@@ -59,7 +59,7 @@ Run the tests
 $ npm test
 ```
 
-Tests live in [`tests/`](tests/) and run via Node's built-in test runner (`node --test`) with `tsx` for on-the-fly TypeScript execution. Node v22 (pinned in `.node-version`) is required for `.ts` test-file support.
+Tests live in [`tests/`](tests/) and run via Node's built-in test runner (`node --test`) with `tsx` for on-the-fly TypeScript execution. Node v24 (pinned in `.node-version`) is required for `.ts` test-file support.
 
 
 ## Releasing
