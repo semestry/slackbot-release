@@ -18,7 +18,7 @@ interface RunResult {
   code: number | null
 }
 
-const REPO_ROOT = path.resolve(__dirname, '..')
+const REPO_ROOT = path.resolve(import.meta.dirname, '..')
 const MAIN_ENTRY = path.join(REPO_ROOT, 'src', 'main.ts')
 
 function startSlackWebhookServer(): Promise<{

@@ -2,12 +2,26 @@ import {after, afterEach, before, describe, test} from 'node:test'
 import assert from 'node:assert/strict'
 import sinon from 'sinon'
 import axios from 'axios'
-import {notifyChangelog} from '../src/changelog-notification'
+import {notifyChangelog} from '../src/changelog-notification.js'
+
+interface ButtonElement {
+  type: 'button'
+  text: {type: 'plain_text'; text: string}
+  url: string
+}
+
+interface PlainTextElement {
+  type: 'plain_text'
+  text: string
+  emoji?: boolean
+}
+
+type SlackElement = ButtonElement | PlainTextElement
 
 interface SlackBlock {
   type: string
   text?: {type: string; text: string; emoji?: boolean}
-  elements?: Array<{type: string; text?: {text: string}; url?: string}>
+  elements?: SlackElement[]
 }
 
 interface SlackPayload {
@@ -95,11 +109,11 @@ describe('notifyChangelog', () => {
 
     const payload = postStub.firstCall.args[1] as SlackPayload
     const actions = payload.blocks.find(b => b.type === 'actions')
-    assert.ok(actions, 'expected an actions block')
+    if (!actions) throw new Error('expected an actions block')
     const button = actions.elements?.[0]
-    assert.equal(button?.type, 'button')
-    assert.equal(button?.text?.text, 'View release')
-    assert.equal(button?.url, baseRelease.html_url)
+    if (button?.type !== 'button') throw new Error('expected a button element')
+    assert.equal(button.text.text, 'View release')
+    assert.equal(button.url, baseRelease.html_url)
   })
 
   test('includes a context block attributing the release to its author', async () => {
@@ -113,9 +127,10 @@ describe('notifyChangelog', () => {
 
     const payload = postStub.firstCall.args[1] as SlackPayload
     const context = payload.blocks.find(b => b.type === 'context')
-    assert.ok(context, 'expected a context block')
-    const author = context.elements?.[0] as {type: string; text: string}
-    assert.equal(author?.type, 'plain_text')
+    if (!context) throw new Error('expected a context block')
+    const author = context.elements?.[0]
+    if (author?.type !== 'plain_text')
+      throw new Error('expected a plain_text element')
     assert.equal(author.text, ':technologist: Author: octocat')
   })
 
