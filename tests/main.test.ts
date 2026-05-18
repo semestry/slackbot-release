@@ -157,6 +157,12 @@ describe('main entrypoint', () => {
       result.stdout,
       /::error::Action should only be run on release publish events/
     )
+    const errorLines = result.stdout.match(/^::error::/gm) ?? []
+    assert.equal(
+      errorLines.length,
+      1,
+      `expected exactly one ::error:: line, got ${errorLines.length}. stdout=${result.stdout}`
+    )
     assert.equal(slack.requests.length, 0)
     assert.notEqual(result.code, 0)
   })

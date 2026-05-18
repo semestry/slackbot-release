@@ -12,6 +12,7 @@ async function run(): Promise<void> {
     const {eventName, repo} = context
     if (eventName !== 'release') {
       setFailed('Action should only be run on release publish events')
+      return
     }
     const payload = context.payload as ReleaseReleasedEvent
     await notifyChangelog({
