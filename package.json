@@ -1,6 +1,6 @@
 {
   "name": "slackbot-release",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Slackbot on release",
   "main": "lib/main.js",
   "type": "module",
