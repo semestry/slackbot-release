@@ -42,7 +42,7 @@
     "@types/sinon": "^21.0.1",
     "@vercel/ncc": "^0.44.1",
     "eslint": "^10.6.0",
-    "js-yaml": "^5.2.0",
+    "js-yaml": "^5.2.1",
     "prettier": "3.9.4",
     "release-it": "^20.2.1",
     "sinon": "^22.0.0",
