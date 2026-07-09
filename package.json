@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.0.1",
-    "@types/sinon": "^21.0.1",
+    "@types/sinon": "^22.0.0",
     "@vercel/ncc": "^0.44.1",
     "eslint": "^10.6.0",
     "js-yaml": "^5.2.0",
