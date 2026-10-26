@@ -41,7 +41,7 @@
     "@types/node": "^26.6.5",
     "@types/sinon": "^22.0.0",
     "@vercel/ncc": "^0.45.0",
-    "eslint": "^10.11.0",
+    "eslint": "^10.13.0",
     "js-yaml": "^5.5.0",
     "prettier": "3.9.10",
     "release-it": "^21.1.1",
