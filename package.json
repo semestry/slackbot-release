@@ -35,7 +35,7 @@
     "@slack/web-api": "^8.2.0",
     "@tryfabric/mack": "^1.2.1",
     "axios": "^1.21.0",
-    "globals": "^17.13.0"
+    "globals": "^17.14.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
